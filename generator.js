@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const PDFdocument = require("pdfkit");
 const fs = require("fs");
+const path = require("path");
 
 const route = Router();
 
@@ -214,10 +215,12 @@ let grandTotal = [
   },
 ];
 
+// Main input
+// Table body data
 let tableContent = [
   {
     element: "GOLD 05-Apr-2024",
-    data: [
+    data : [
       [
         "11-03-2024",
         "60",
@@ -238,216 +241,11 @@ let tableContent = [
         "74179",
         "4450740",
       ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-    ],
-  },
-  {
-    element: "Silver 05-Apr-2024",
-    data: [
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-    ],
+    ]
   },
   {
     element: "Almunium 05-Apr-2024",
-    data: [
+    data : [
       [
         "11-03-2024",
         "60",
@@ -468,731 +266,11 @@ let tableContent = [
         "74179",
         "4450740",
       ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-    ],
+    ]
   },
   {
     element: "Another 05-Apr-2024",
     data: [
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
-      [
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-        "11-03-2024",
-        "60",
-        "74179",
-        "4450740",
-      ],
       [
         "11-03-2024",
         "60",
@@ -1268,17 +346,17 @@ const setTotal = ({ doc, data, grandTotal }) => {
   doc.fillColor("black").fontSize(18).text("Soft", 450, 280);
 };
 
-route.get("/", (req, res) => {
+route.get("/create", (req, res) => {
   try {
     let doc = new PDFdocument();
 
     let time = new Date();
 
     let date = time.getDate();
-let sec = time.getSeconds();
+    let sec = time.getSeconds();
 
     let writeStream = fs.createWriteStream(
-      `./assets/pdf-${date+"-"+sec}.pdf`
+      `./assets/pdf-${date + "-" + sec}.pdf`
     );
 
     doc.pipe(writeStream);
@@ -1290,7 +368,7 @@ let sec = time.getSeconds();
     });
 
     tableContent.forEach((item, index) => {
-      for (let i = 0; i < item.data.length - 1; i++) {
+      for (let i = 0; i < item?.data?.length; i++) {
         if (i <= 30) {
           setTableHeader({
             doc,
@@ -1315,6 +393,9 @@ let sec = time.getSeconds();
             },
           });
         } else if (i > 30 && i < 60) {
+          if (i === 31) {
+            doc.addPage();
+          }
           setTableHeader({
             doc,
             tab1Text: "Purchase",
@@ -1338,6 +419,9 @@ let sec = time.getSeconds();
             },
           });
         } else if (i > 60 && i < 90) {
+          if (i === 61) {
+            doc.addPage();
+          }
           setTableHeader({
             doc,
             tab1Text: "Purchase",
@@ -1361,6 +445,451 @@ let sec = time.getSeconds();
             },
           });
         } else if (i > 90 && i < 120) {
+          if (i === 91) {
+            doc.addPage();
+          }
+          setTableHeader({
+            doc,
+            tab1Text: "Purchase",
+            tab2Text: "Sale",
+            tab3Text: item.element,
+          });
+          setTableBody({ doc, data: item.data.slice(90, 120) });
+          setTableFooter({
+            doc,
+            grossAmount: {
+              title: "Gross Amount",
+              amount: "404242 Cr",
+            },
+            brokerage: {
+              title: "Brokerage",
+              amount: "23234 Dr",
+            },
+            saudaNetAmt: {
+              title: "Sauda Net Amt",
+              amount: "23233 Cr",
+            },
+          });
+        } else if (i > 90 && i < 120) {
+          if (i === 91) {
+            doc.addPage();
+          }
+          setTableHeader({
+            doc,
+            tab1Text: "Purchase",
+            tab2Text: "Sale",
+            tab3Text: item.element,
+          });
+          setTableBody({ doc, data: item.data.slice(90, 120) });
+          setTableFooter({
+            doc,
+            grossAmount: {
+              title: "Gross Amount",
+              amount: "404242 Cr",
+            },
+            brokerage: {
+              title: "Brokerage",
+              amount: "23234 Dr",
+            },
+            saudaNetAmt: {
+              title: "Sauda Net Amt",
+              amount: "23233 Cr",
+            },
+          });
+        } else if (i > 120 && i < 150) {
+          if (i === 121) {
+            doc.addPage();
+          }
+          setTableHeader({
+            doc,
+            tab1Text: "Purchase",
+            tab2Text: "Sale",
+            tab3Text: item.element,
+          });
+          setTableBody({ doc, data: item.data.slice(90, 120) });
+          setTableFooter({
+            doc,
+            grossAmount: {
+              title: "Gross Amount",
+              amount: "404242 Cr",
+            },
+            brokerage: {
+              title: "Brokerage",
+              amount: "23234 Dr",
+            },
+            saudaNetAmt: {
+              title: "Sauda Net Amt",
+              amount: "23233 Cr",
+            },
+          });
+        } else if (i > 150 && i < 180) {
+          if (i === 151) {
+            doc.addPage();
+          }
+          setTableHeader({
+            doc,
+            tab1Text: "Purchase",
+            tab2Text: "Sale",
+            tab3Text: item.element,
+          });
+          setTableBody({ doc, data: item.data.slice(90, 120) });
+          setTableFooter({
+            doc,
+            grossAmount: {
+              title: "Gross Amount",
+              amount: "404242 Cr",
+            },
+            brokerage: {
+              title: "Brokerage",
+              amount: "23234 Dr",
+            },
+            saudaNetAmt: {
+              title: "Sauda Net Amt",
+              amount: "23233 Cr",
+            },
+          });
+        } else if (i > 180 && i < 210) {
+          if (i === 181) {
+            doc.addPage();
+          }
+          setTableHeader({
+            doc,
+            tab1Text: "Purchase",
+            tab2Text: "Sale",
+            tab3Text: item.element,
+          });
+          setTableBody({ doc, data: item.data.slice(90, 120) });
+          setTableFooter({
+            doc,
+            grossAmount: {
+              title: "Gross Amount",
+              amount: "404242 Cr",
+            },
+            brokerage: {
+              title: "Brokerage",
+              amount: "23234 Dr",
+            },
+            saudaNetAmt: {
+              title: "Sauda Net Amt",
+              amount: "23233 Cr",
+            },
+          });
+        } else if (i > 210 && i < 240) {
+          if (i === 211) {
+            doc.addPage();
+          }
+          setTableHeader({
+            doc,
+            tab1Text: "Purchase",
+            tab2Text: "Sale",
+            tab3Text: item.element,
+          });
+          setTableBody({ doc, data: item.data.slice(90, 120) });
+          setTableFooter({
+            doc,
+            grossAmount: {
+              title: "Gross Amount",
+              amount: "404242 Cr",
+            },
+            brokerage: {
+              title: "Brokerage",
+              amount: "23234 Dr",
+            },
+            saudaNetAmt: {
+              title: "Sauda Net Amt",
+              amount: "23233 Cr",
+            },
+          });
+        } else if (i > 240 && i < 270) {
+          if (i === 241) {
+            doc.addPage();
+          }
+          setTableHeader({
+            doc,
+            tab1Text: "Purchase",
+            tab2Text: "Sale",
+            tab3Text: item.element,
+          });
+          setTableBody({ doc, data: item.data.slice(90, 120) });
+          setTableFooter({
+            doc,
+            grossAmount: {
+              title: "Gross Amount",
+              amount: "404242 Cr",
+            },
+            brokerage: {
+              title: "Brokerage",
+              amount: "23234 Dr",
+            },
+            saudaNetAmt: {
+              title: "Sauda Net Amt",
+              amount: "23233 Cr",
+            },
+          });
+        } else if (i > 270 && i < 300) {
+          if (i === 271) {
+            doc.addPage();
+          }
+          setTableHeader({
+            doc,
+            tab1Text: "Purchase",
+            tab2Text: "Sale",
+            tab3Text: item.element,
+          });
+          setTableBody({ doc, data: item.data.slice(90, 120) });
+          setTableFooter({
+            doc,
+            grossAmount: {
+              title: "Gross Amount",
+              amount: "404242 Cr",
+            },
+            brokerage: {
+              title: "Brokerage",
+              amount: "23234 Dr",
+            },
+            saudaNetAmt: {
+              title: "Sauda Net Amt",
+              amount: "23233 Cr",
+            },
+          });
+        } else if (i > 300 && i < 330) {
+          if (i === 301) {
+            doc.addPage();
+          }
+          setTableHeader({
+            doc,
+            tab1Text: "Purchase",
+            tab2Text: "Sale",
+            tab3Text: item.element,
+          });
+          setTableBody({ doc, data: item.data.slice(90, 120) });
+          setTableFooter({
+            doc,
+            grossAmount: {
+              title: "Gross Amount",
+              amount: "404242 Cr",
+            },
+            brokerage: {
+              title: "Brokerage",
+              amount: "23234 Dr",
+            },
+            saudaNetAmt: {
+              title: "Sauda Net Amt",
+              amount: "23233 Cr",
+            },
+          });
+        } else if (i > 330 && i < 360) {
+          if (i === 331) {
+            doc.addPage();
+          }
+          setTableHeader({
+            doc,
+            tab1Text: "Purchase",
+            tab2Text: "Sale",
+            tab3Text: item.element,
+          });
+          setTableBody({ doc, data: item.data.slice(90, 120) });
+          setTableFooter({
+            doc,
+            grossAmount: {
+              title: "Gross Amount",
+              amount: "404242 Cr",
+            },
+            brokerage: {
+              title: "Brokerage",
+              amount: "23234 Dr",
+            },
+            saudaNetAmt: {
+              title: "Sauda Net Amt",
+              amount: "23233 Cr",
+            },
+          });
+        } else if (i > 360 && i < 390) {
+          if (i === 361) {
+            doc.addPage();
+          }
+          setTableHeader({
+            doc,
+            tab1Text: "Purchase",
+            tab2Text: "Sale",
+            tab3Text: item.element,
+          });
+          setTableBody({ doc, data: item.data.slice(90, 120) });
+          setTableFooter({
+            doc,
+            grossAmount: {
+              title: "Gross Amount",
+              amount: "404242 Cr",
+            },
+            brokerage: {
+              title: "Brokerage",
+              amount: "23234 Dr",
+            },
+            saudaNetAmt: {
+              title: "Sauda Net Amt",
+              amount: "23233 Cr",
+            },
+          });
+        } else if (i > 390 && i < 420) {
+          if (i === 391) {
+            doc.addPage();
+          }
+          setTableHeader({
+            doc,
+            tab1Text: "Purchase",
+            tab2Text: "Sale",
+            tab3Text: item.element,
+          });
+          setTableBody({ doc, data: item.data.slice(90, 120) });
+          setTableFooter({
+            doc,
+            grossAmount: {
+              title: "Gross Amount",
+              amount: "404242 Cr",
+            },
+            brokerage: {
+              title: "Brokerage",
+              amount: "23234 Dr",
+            },
+            saudaNetAmt: {
+              title: "Sauda Net Amt",
+              amount: "23233 Cr",
+            },
+          });
+        } else if (i > 420 && i < 450) {
+          if (i === 421) {
+            doc.addPage();
+          }
+          setTableHeader({
+            doc,
+            tab1Text: "Purchase",
+            tab2Text: "Sale",
+            tab3Text: item.element,
+          });
+          setTableBody({ doc, data: item.data.slice(90, 120) });
+          setTableFooter({
+            doc,
+            grossAmount: {
+              title: "Gross Amount",
+              amount: "404242 Cr",
+            },
+            brokerage: {
+              title: "Brokerage",
+              amount: "23234 Dr",
+            },
+            saudaNetAmt: {
+              title: "Sauda Net Amt",
+              amount: "23233 Cr",
+            },
+          });
+        } else if (i > 450 && i < 480) {
+          if (i === 451) {
+            doc.addPage();
+          }
+          setTableHeader({
+            doc,
+            tab1Text: "Purchase",
+            tab2Text: "Sale",
+            tab3Text: item.element,
+          });
+          setTableBody({ doc, data: item.data.slice(90, 120) });
+          setTableFooter({
+            doc,
+            grossAmount: {
+              title: "Gross Amount",
+              amount: "404242 Cr",
+            },
+            brokerage: {
+              title: "Brokerage",
+              amount: "23234 Dr",
+            },
+            saudaNetAmt: {
+              title: "Sauda Net Amt",
+              amount: "23233 Cr",
+            },
+          });
+        } else if (i > 480 && i < 510) {
+          if (i === 481) {
+            doc.addPage();
+          }
+          setTableHeader({
+            doc,
+            tab1Text: "Purchase",
+            tab2Text: "Sale",
+            tab3Text: item.element,
+          });
+          setTableBody({ doc, data: item.data.slice(90, 120) });
+          setTableFooter({
+            doc,
+            grossAmount: {
+              title: "Gross Amount",
+              amount: "404242 Cr",
+            },
+            brokerage: {
+              title: "Brokerage",
+              amount: "23234 Dr",
+            },
+            saudaNetAmt: {
+              title: "Sauda Net Amt",
+              amount: "23233 Cr",
+            },
+          });
+        } else if (i > 510 && i < 540) {
+          if (i === 511) {
+            doc.addPage();
+          }
+          setTableHeader({
+            doc,
+            tab1Text: "Purchase",
+            tab2Text: "Sale",
+            tab3Text: item.element,
+          });
+          setTableBody({ doc, data: item.data.slice(90, 120) });
+          setTableFooter({
+            doc,
+            grossAmount: {
+              title: "Gross Amount",
+              amount: "404242 Cr",
+            },
+            brokerage: {
+              title: "Brokerage",
+              amount: "23234 Dr",
+            },
+            saudaNetAmt: {
+              title: "Sauda Net Amt",
+              amount: "23233 Cr",
+            },
+          });
+        } else if (i > 540 && i < 570) {
+          if (i === 541) {
+            doc.addPage();
+          }
+          setTableHeader({
+            doc,
+            tab1Text: "Purchase",
+            tab2Text: "Sale",
+            tab3Text: item.element,
+          });
+          setTableBody({ doc, data: item.data.slice(90, 120) });
+          setTableFooter({
+            doc,
+            grossAmount: {
+              title: "Gross Amount",
+              amount: "404242 Cr",
+            },
+            brokerage: {
+              title: "Brokerage",
+              amount: "23234 Dr",
+            },
+            saudaNetAmt: {
+              title: "Sauda Net Amt",
+              amount: "23233 Cr",
+            },
+          });
+        } else if (i > 570 && i < 600) {
+          if (i === 571) {
+            doc.addPage();
+          }
           setTableHeader({
             doc,
             tab1Text: "Purchase",
@@ -1410,5 +939,38 @@ let sec = time.getSeconds();
   }
 });
 
+const assetsFolder = path.join(__dirname, "assets");
+
+route.get("/names", (req, res) => {
+  fs.readdir(assetsFolder, (err, files) => {
+    if (err) {
+      console.error("Error reading assets folder:", err);
+      return res.status(500).send("Internal Server Error");
+    }
+
+    const fileNames = files.filter(
+      (file) => !fs.statSync(path.join(assetsFolder, file)).isDirectory()
+    );
+
+    let pdf_links = fileNames.map(
+      (item) => `http://localhost:3000/download/${item}`
+    );
+    res.status(200).json({ pdf_links });
+  });
+});
+
+route.get("/download/:fileName", (req, res) => {
+  const fileName = req.params.fileName;
+
+  const filePath = path.join(assetsFolder, fileName);
+  if (!fs.existsSync(filePath)) {
+    return res.status(404).send("File not found");
+  }
+
+  res.setHeader('Content-Disposition', `attachment; filename=${fileName}`);
+
+  const fileStream = fs.createReadStream(filePath);
+  fileStream.pipe(res);
+});
 
 module.exports = route;
